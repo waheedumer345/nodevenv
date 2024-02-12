@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Touch GTC</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Add your custom styles here */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #343a40;
+            padding: 1rem;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            color: #ffc107 !important;
+            font-size: 2rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar-nav .nav-link {
+            color: #ffffff !important;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffc107 !important;
+        }
+
+        .jumbotron {
+            background: url('https://drive.google.com/file/d/1IJ3dH5VyyB_25gCzoDu6_1i7aRkcgDT0/view?usp=drive_link') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
+            text-align: center;
+            padding: 15rem 2rem;
+            margin-bottom: 0;
+            position: relative;
+        }
+
+        .jumbotron h1 {
+            font-size: 4.5rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            animation: fadeInDown 1.5s;
+        }
+
+        .jumbotron p {
+            font-size: 2rem;
+            animation: fadeInUp 1.5s;
+        }
+
+        .services-section {
+            padding: 5rem 2rem;
+            background-color: #ffffff;
+        }
+
+        .service-card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            animation: fadeIn 1s;
+        }
+
+        .service-card:hover {
+            transform: scale(1.05);
+        }
+
+        .service-card img {
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            transition: transform 0.3s;
+            height: 200px;
+        }
+
+        .service-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .service-card h5 {
+            color: #343a40;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+        .service-card p {
+            color: #666;
+        }
+
+        .about-section {
+            background-color: #f8f9fa;
+            padding: 5rem 2rem;
+        }
+
+        .about-text {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .about-image {
+            border-radius: 15px;
+            overflow: hidden;
+            margin-top: 2rem;
+            animation: fadeInRight 1s;
+        }
+
+        .contact-section {
+            padding: 5rem 2rem;
+            background-color: #343a40;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1.5s;
+        }
+
+        .contact-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1.5s;
+        }
+
+        .contact-details {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            animation: fadeInUp 1.5s;
+        }
+
+        .contact-details li {
+            margin-bottom: 1rem;
+        }
+
+        .contact-details strong {
+            font-weight: bold;
+            margin-right: 0.5rem;
+            color: #ffc107;
+        }
+
+        .social-icons {
+            list-style: none;
+            padding: 0;
+            margin-top: 2rem;
+            animation: fadeInUp 1.5s;
+        }
+
+        .social-icons li {
+            display: inline-block;
+            margin-right: 1rem;
+        }
+
+        .social-icons a {
+            color: #ffffff;
+            font-size: 1.8rem;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #ffc107;
+        }
+
+        /* Unique Menu Style */
+        .navbar-toggler-icon {
+            background-color: #ffc107;
+        }
+
+        .navbar-toggler {
+            border: none;
+        }
+
+        /* Unique Heading Style */
+        h2,
+        h3 {
+            color: #343a40;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Map Section */
+        #map {
+            height: 400px;
+            width: 100%;
+            border-radius: 15px;
+            margin-top: 2rem;
+            animation: fadeInUp 1.5s;
+        }
+
+        /* QHSE Section */
+        .qhse-section {
+            padding: 5rem 2rem;
+            background-color: #f8f9fa;
+        }
+
+        .qhse-card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            animation: fadeIn 1s;
+        }
+
+        .qhse-card:hover {
+            transform: scale(1.05);
+        }
+
+        .qhse-card img {
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            transition: transform 0.3s;
+            height: 200px;
+        }
+
+        .qhse-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .qhse-card h5 {
+            color: #343a40;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+        .qhse-card p {
+            color: #666;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            padding: 5rem 2rem;
+            background-color: #ffffff;
+        }
+
+        .project-card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            animation: fadeIn 1s;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+
+        .project-card img {
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            transition: transform 0.3s;
+            height: 200px;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .project-card h5 {
+            color: #343a40;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+        .project-card p {
+            color: #666;
+        }
+
+        /* Footer Section */
+        .footer-section {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            color: #ffc107;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Add more custom styles as needed */
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#home">Red Touch GTC</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#qhse">QHSE</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <div id="home" class="jumbotron">
+        <h1 class="display-4 animated">Welcome to Red Touch General Transport and Contracting L.L.C</h1>
+        <p class="lead animated">Building Dreams, Constructing Futures</p>
+    </div>
+
+    <!-- Services Section -->
+    <div id="services" class="services-section">
+        <div class="container">
+            <h2 class="mb-5 text-center">Our Services</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card service-card">
+                        <img src="https://drive.google.com/file/d/1B8eV7DGARy687jO7jTGAC4ZodHRmwcc6/view?usp=drive_link" class="card-img-top"
+                            alt="Residential Construction">
+                        <div class="card-body">
+                            <h5 class="card-title">Residential Construction</h5>
+                            <p class="card-text">We specialize in high-quality residential construction
+                                projects.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card service-card">
+                        <img src="https://drive.google.com/file/d/1iq-EKAcI7rPcS8GAP3w4usWFt9R0eYVe/view?usp=drive_link" class="card-img-top"
+                            alt="Commercial Construction">
+                        <div class="card-body">
+                            <h5 class="card-title">Commercial Construction</h5>
+                            <p class="card-text">Our expertise extends to diverse commercial construction
+                                endeavors.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card service-card">
+                        <img src="https://drive.google.com/file/d/1_QTShP9gkwrPTaGZB5jJc2AtjpJe4jkR/view?usp=drive_link" class="card-img-top"
+                            alt="Infrastructure Development">
+                        <div class="card-body">
+                            <h5 class="card-title">Infrastructure Development</h5>
+                            <p class="card-text">We contribute to the development of robust infrastructure
+                                projects.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div id="about" class="about-section">
+        <div class="container">
+            <h2 class="mb-5 text-center">About Us</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="about-text">
+                        Red Touch General Transport and Contracting L.L.C stands as a leading construction company
+                        headquartered in the United Arab Emirates (UAE), specializing in Civil and MEP (Mechanical,
+                        Electrical, Plumbing) works. Established with a commitment to excellence, the company has
+                        swiftly positioned itself as a key player in the construction industry, delivering a diverse
+                        range of services across various sectors.
+                    </p>
+                    <h3 class="mb-3">Core Services</h3>
+                    <p class="about-text">
+                        <strong>Civil Construction:</strong> Red Touch excels in civil construction projects,
+                        showcasing proficiency in the development of infrastructure, roads, bridges, and other civil
+                        engineering endeavors. The company's expertise lies in efficiently managing projects from
+                        conception to completion, ensuring structural integrity and compliance with industry
+                        standards.
+                    </p>
+                    <p class="about-text">
+                        <strong>MEP Works:</strong> Recognizing the critical role of MEP systems in modern
+                        construction, Red Touch offers comprehensive Mechanical, Electrical, and Plumbing solutions.
+                        This encompasses the design, installation, and maintenance of systems crucial to the
+                        functionality and sustainability of buildings.
+                    </p>
+                    <p class="about-text">
+                        <strong>Transportation Solutions:</strong> Complementing its core services, Red Touch
+                        provides seamless transportation solutions, facilitating the movement of construction materials,
+                        specialized machinery, and equipment to and from project sites.
+                    </p>
+                    <h3 class="mb-3">Sector Expertise</h3>
+                    <p class="about-text">
+                        <strong>Residential and Commercial Developments:</strong> Red Touch is a preferred partner
+                        for residential and commercial projects, delivering high-quality construction and MEP solutions.
+                        The company places emphasis on creating spaces that are not only structurally sound but also
+                        technologically advanced and energy-efficient.
+                    </p>
+                    <p class="about-text">
+                        <strong>Infrastructure and Public Works:</strong> Red Touch contributes significantly to
+                        infrastructure development, specializing in civil engineering projects that enhance public
+                        spaces. From road networks to utility installations, the company is committed to advancing the
+                        nation's infrastructure.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <img src="https://drive.google.com/file/d/1aE4Yehq5V75KZuD37MhOaoGLIz1_OoET/view?usp=drive_link" class="img-fluid rounded about-image"
+                        alt="About Us Image">
+                </div>
+            </div>
+            <h3 class="mb-3 text-center">Commitment to Quality, Safety, and Sustainability</h3>
+            <p class="about-text">
+                Red Touch General Transport and Contracting L.L.C upholds rigorous standards of quality, safety, and
+                sustainability. With a focus on excellence, the company ensures that all Civil and MEP works adhere
+                to industry best practices, emphasizing the safety of its workforce and the longevity of its projects.
+            </p>
+            <h3 class="mb-3 text-center">Innovation in MEP Solutions</h3>
+            <p class="about-text">
+                In the rapidly evolving field of MEP, Red Touch leverages innovative technologies and sustainable
+                practices. The company integrates energy-efficient systems, smart building solutions, and
+                eco-friendly designs into its MEP works, contributing to the overall efficiency and environmental
+                responsibility of its projects.
+            </p>
+        </div>
+    </div>
+
+    <!-- QHSE Section -->
+    <div id="qhse" class="qhse-section">
+        <div class="container">
+            <h2 class="mb-5 text-center">QHSE</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card qhse-card">
+                        <img src="https://drive.google.com/file/d/1Ktp6rqTus4mImAJ9YFBNfp3m7m6n_h6q/view?usp=drive_link" class="card-img-top" alt="Quality Management">
+                        <div class="card-body">
+                            <h5 class="card-title">Quality Management</h5>
+                            <p class="card-text">Ensuring the highest standards in all aspects of our operations.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card qhse-card">
+                        <img src="https://drive.google.com/file/d/1cNhXegnN8MQLEMDYSByqhE4iLuneePzE/view?usp=drive_link" class="card-img-top" alt="Health & Safety">
+                        <div class="card-body">
+                            <h5 class="card-title">Health & Safety</h5>
+                            <p class="card-text">Committed to creating a safe and secure working environment.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card qhse-card">
+                        <img src="https://drive.google.com/file/d/1LYLfQbL1tF4skszTHwFJVwjOUjc9mzjB/view?usp=drive_link" class="card-img-top" alt="Environmental Sustainability">
+                        <div class="card-body">
+                            <h5 class="card-title">Environmental Sustainability</h5>
+                            <p class="card-text">Integrating eco-friendly practices for a sustainable future.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Projects Section -->
+    <div id="projects" class="projects-section">
+        <div class="container">
+            <h2 class="mb-5 text-center">Our Projects</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card project-card">
+                        <img src="https://drive.google.com/file/d/1iq-EKAcI7rPcS8GAP3w4usWFt9R0eYVe/view?usp=drive_link" class="card-img-top" alt="Project 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Project 1</h5>
+                            <p class="card-text">Description of Project 1.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card project-card">
+                        <img src="https://drive.google.com/file/d/1_QTShP9gkwrPTaGZB5jJc2AtjpJe4jkR/view?usp=drive_link" class="card-img-top" alt="Project 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Project 2</h5>
+                            <p class="card-text">Description of Project 2.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card project-card">
+                        <img src="https://drive.google.com/file/d/19r29y7NESy7eHM6tMLF3PLB2EdYEkjEL/view?usp=drive_link" class="card-img-top" alt="Project 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Project 3</h5>
+                            <p class="card-text">Description of Project 3.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="mb-5 text-center">Contact Us</h2>
+            <p class="about-text">
+                For inquiries, collaboration opportunities, or additional information, interested parties are
+                encouraged to reach out to Red Touch General Transport and Contracting L.L.C through the following
+                contact details:
+            </p>
+            <ul class="contact-details">
+                <li><strong>Email:</strong> info@redtouch-gtc.com</li>
+                <li><strong>Phone:</strong> +971 552 406 823</li>
+                <li><strong>Address:</strong> P.O. Box 12345, Dubai, UAE</li>
+            </ul>
+            <div id="map"></div>
+            <script>
+                function initMap() {
+                    const map = new google.maps.Map(document.getElementById("map"), {
+                        center: { lat: 24.30715564295672, lng: 54.56848153790272 },
+                        zoom: 15,
+                    });
+                    const marker = new google.maps.Marker({
+                        position: { lat: 24.30715564295672, lng: 54.56848153790272 },
+                        map: map,
+                        title: "Red Touch GTC",
+                    });
+                }
+            </script>
+            <script
+                src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly"
+                async
+            ></script>
+            <ul class="social-icons">
+                <li><a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer-section">
+        <div class="container">
+            <p class="footer-logo">Red Touch GTC</p>
+            <p class="footer-text">© 2024 Red Touch General Transport and Contracting L.L.C. All Rights Reserved.
+            </p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="<script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
